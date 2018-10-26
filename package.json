@@ -1,0 +1,24 @@
+{
+  "name": "ssb-across-the-block",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan-mi-sun/ssb-across-the-block.git"
+  },
+  "keywords": [
+    "ssb",
+    "scuttlebutt",
+    "blockades"
+  ],
+  "author": "Dan Hassan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dan-mi-sun/ssb-across-the-block/issues"
+  },
+  "homepage": "https://github.com/dan-mi-sun/ssb-across-the-block#readme"
+}
