@@ -1,6 +1,12 @@
 var connection = require('ssb-client')
 var pull = require('pull-stream')
 
+// what am i trying to do here?
+// i want to find posts which have block
+// first step is to find the name of the author (sameAs with mix)
+// next step is to find the content of type contact of type blocking true 
+// next step is to find all backLinks to this post
+//
 connection(function (error, server) {
   if (error) console.log(`This is the error: ${error}`)
 
