@@ -12,8 +12,8 @@ function Post (postData) {
 // could do some logic and error handelling here. pospi doesn't have an author name e.g. so we could give a default
   return html`
   <div>
-    <strong>${postData.authorName}</strong>
-    <p>${postData.text}</p>
+    <strong>${postData.authorName} blocked: </strong>
+    <p>${postData.contact}</p>
   </div>
   `
 }

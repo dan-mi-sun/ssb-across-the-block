@@ -2,7 +2,7 @@ var html = require('yo-yo')
 var pull = require('pull-stream')
 var paraMap = require('pull-paramap')
 
-var lastDaysPosts = require('../source/last-days-posts')
+var lastDaysBlocks = require('../source/last-days-blocks')
 var getName = require('../async/get-name')
 var Posts = require('./posts')
 
@@ -17,7 +17,7 @@ var resultsEl = html`
 module.exports = function App (server) {
   const app = html`
     <div className='app'>
-      <h1>Days Posts</h1>
+      <h1>Days Blocks</h1>
       <section>
         <button onclick=${() => changeDate(-1)}> Back </ button>
         <button onclick=${() => changeDate(+1)}> Fwd </ button>
@@ -40,7 +40,7 @@ function renderDay (server, state) {
   html.update(resultsEl, html`<div>Loading... </div>`)
 
   pull(
-    lastDaysPosts(server, state.daysAgo),
+    lastDaysBlocks(server, state.daysAgo),
     paraMap(getName(server), 50),
     // paraMap(getBacklinks(server), 50),
     pull.collect((error, results) => {

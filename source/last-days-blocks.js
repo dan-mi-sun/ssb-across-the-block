@@ -22,7 +22,7 @@ module.exports = function lastDaysPosts (server, daysAgo = 0) {
       }, {
         $map: {
           author: ['value', 'author'],
-          contact: ['value', 'content', 'text'],
+          contact: ['value', 'content', 'contact'],
           timestamp: ['value', 'timestamp']
         }
       }
