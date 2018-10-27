@@ -17,15 +17,16 @@ connection(function (error, server) {
         $filter: {
           value: {
             content: {
-              type: 'post'
+              type: 'contact',
+              blocking: 'true'
             }
           }
         }
       }, {
         $map: {
           author: ['value', 'author'],
-          text: ['value', 'content', 'text'],
-          timestamp: ['value', 'timestamp'],
+          blocking: ['value', 'content', 'contact'],
+          timestamp: ['value', 'timestamp']
         }
       }
     ]
