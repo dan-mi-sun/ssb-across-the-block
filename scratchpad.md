@@ -1,12 +1,15 @@
 # TODO:
 
-- get backLinked posts to block content post
-  - isolate functionality and check if backlinks works as expected
-  - set up specific server in new file
-  - set up function calling this library
-- print out the text of the backLinked post
-- get name of blocked person 
-- remove date range
+-[x] get backLinked posts to block content post
+  -[x] isolate functionality and check if backlinks works as expected
+  -[x] set up specific server in new file
+  -[x] set up function calling this library
+-[x] print out the text of the backLinked post
+-[x] publish key of block msg (which will act as dest id for backLinks)
+-[ ] make the dest id of block dynamic based on lastDaysBlocks 
+-[ ] only return posts about a block issued by the issuer of the block 
+-[ ] get name of blocked person 
+-[ ] remove date range
 
 
 

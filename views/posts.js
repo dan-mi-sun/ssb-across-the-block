@@ -13,6 +13,7 @@ function Post (postData) {
   return html`
   <div>
     <strong>${postData.authorName} blocked: </strong>
+    <p>key: ${postData.key}</p>
     <p>${postData.contact}</p>
   </div>
   `

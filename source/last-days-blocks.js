@@ -21,9 +21,11 @@ module.exports = function lastDaysBlocks (server, daysAgo = 0) {
         }
       }, {
         $map: {
+          key: ['key'],
           author: ['value', 'author'],
           contact: ['value', 'content', 'contact'],
           timestamp: ['value', 'timestamp']
+
         }
       }
     ]

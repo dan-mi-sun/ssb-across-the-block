@@ -1,7 +1,7 @@
 var sbot = require('ssb-client')
 const pull = require('pull-stream')
 
-var relatedMessages = []
+const relatedMessages = []
 
 sbot(function (error, server) {
   if (error) console.log(`This is the error: ${error}`)
@@ -35,13 +35,12 @@ sbot(function (error, server) {
   pull(
     createBacklinkStream(msgKey),
     pull.filter(msg => !msg.sync),
-      // note the 'live' style streams emit { sync: true } when they're up to date!
     pull.drain(msg => {
       console.log(msg.value.content)
       console.log(relatedMessages.length)
-      console.log('----')
       relatedMessages.push(msg)
       console.log(relatedMessages.length)
+      console.log('----')
     })
   )
 })
