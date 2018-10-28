@@ -19,7 +19,7 @@ sbot(function (error, server) {
     })
   }
 
-  // var onDone = function (error, results) {
+  // var onDone = function (results) {
   //   results.forEach(msg => {
   //     console.log(msg.value.content)
   //     console.log('----')
@@ -38,8 +38,10 @@ sbot(function (error, server) {
       // note the 'live' style streams emit { sync: true } when they're up to date!
     pull.drain(msg => {
       console.log(msg.value.content)
+      console.log(relatedMessages.length)
       console.log('----')
       relatedMessages.push(msg)
+      console.log(relatedMessages.length)
     })
   )
 })
