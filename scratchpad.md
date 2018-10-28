@@ -1,6 +1,9 @@
 # TODO:
 
 - get backLinked posts to block content post
+  - isolate functionality and check if backlinks works as expected
+  - set up specific server in new file
+  - set up function calling this library
 - print out the text of the backLinked post
 - get name of blocked person 
 - remove date range

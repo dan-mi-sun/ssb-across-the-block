@@ -42,7 +42,7 @@ function renderDay (server, state) {
   pull(
     lastDaysBlocks(server, state.daysAgo),
     paraMap(getName(server), 50),
-    // paraMap(getBacklinks(server), 50),
+    // paraMap(getBacklinks(id)),
     pull.collect((error, results) => {
       if (error) console.log(error)
 
