@@ -1,3 +1,12 @@
+# TODO:
+
+- get backLinked posts to block content post
+- print out the text of the backLinked post
+- get name of blocked person 
+- remove date range
+
+
+
 This is what a block looks like:
 
 

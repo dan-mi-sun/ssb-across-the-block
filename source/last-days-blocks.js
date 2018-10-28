@@ -1,7 +1,7 @@
 var HOUR = 3600000
 var DAY = 24 * HOUR
 
-module.exports = function lastDaysPosts (server, daysAgo = 0) {
+module.exports = function lastDaysBlocks (server, daysAgo = 0) {
   var now = new Date()
   var opts = {
     reverse: true,
