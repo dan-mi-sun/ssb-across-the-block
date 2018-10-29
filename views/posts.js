@@ -15,6 +15,8 @@ function Post (postData) {
     <strong>${postData.authorName} blocked: </strong>
     <p>key: ${postData.key}</p>
     <p>${postData.contact}</p>
+    <p>backlinks: insert here</p>
+    <p>backlinksContent: insert here</p>
   </div>
   `
 }

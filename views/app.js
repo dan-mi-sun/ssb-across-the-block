@@ -4,6 +4,7 @@ var paraMap = require('pull-paramap')
 
 var lastDaysBlocks = require('../source/last-days-blocks')
 var getName = require('../async/get-name')
+var getBacklinks = require('../async/get-backlinks')
 var Posts = require('./posts')
 
 var state = {
@@ -42,7 +43,7 @@ function renderDay (server, state) {
   pull(
     lastDaysBlocks(server, state.daysAgo),
     paraMap(getName(server), 50),
-    // paraMap(getBacklinks(id)),
+    paraMap(getBacklinks(server), 50),
     pull.collect((error, results) => {
       if (error) console.log(error)
 
