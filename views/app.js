@@ -10,7 +10,7 @@ var state = {
   daysAgo: 0
 }
 
-var resultsEl = html`
+var htmlTarget = html`
   <div>Loading...</div>
 `
 
@@ -22,7 +22,7 @@ module.exports = function App (server) {
         <button onclick=${() => changeDate(-1)}> Back </ button>
         <button onclick=${() => changeDate(+1)}> Fwd </ button>
       </section>
-      ${resultsEl}
+      ${htmlTarget}
     </div>
   `
 
@@ -37,7 +37,7 @@ module.exports = function App (server) {
 }
 
 function renderDay (server, state) {
-  html.update(resultsEl, html`<div>Loading... </div>`)
+  html.update(htmlTarget, html`<div>Loading... </div>`)
 
   pull(
     lastDaysBlocks(server, state.daysAgo),
@@ -46,7 +46,7 @@ function renderDay (server, state) {
     pull.collect((error, results) => {
       if (error) console.log(error)
 
-      html.update(resultsEl, Posts(results))
+      html.update(htmlTarget, Posts(results))
     })
   )
 }
