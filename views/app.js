@@ -48,7 +48,7 @@ function renderDay (server, state) {
       if (error) console.log(error)
 
       html.update(htmlTarget, Posts(results))
-      console.log(reults)
+      console.log(results.length)
     })
   )
 }
