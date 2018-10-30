@@ -6,6 +6,7 @@ var lastDaysBlocks = require('../source/last-days-blocks')
 var getName = require('../async/get-name')
 // var getBacklinks = require('../async/get-backlinks')
 var Posts = require('./posts')
+var BlockMessages = require('./block-messages.js')
 
 var state = {
   daysAgo: 0
@@ -13,6 +14,9 @@ var state = {
 
 var htmlTarget = html`
   <div>Loading...</div>
+`
+var secondHtmlTarget = html`
+  <div>Loading 2...</div>
 `
 
 module.exports = function App (server) {
@@ -24,10 +28,12 @@ module.exports = function App (server) {
         <button onclick=${() => changeDate(+1)}> Fwd </ button>
       </section>
       ${htmlTarget}
+      ${secondHtmlTarget}
     </div>
   `
 
   renderDay(server, state)
+  renderBlockComments(server, state)
 
   return app
 
@@ -48,6 +54,20 @@ function renderDay (server, state) {
       if (error) console.log(error)
 
       html.update(htmlTarget, Posts(results))
+    })
+  )
+}
+
+function renderBlockComments (server, state) {
+  html.update(seondHtmlTarget, html`<div>Loading block comment...</div>`)
+
+  pull(
+    lastDaysBlocks(server, state.daysAgo),
+    paraMap(getName(server), 50),
+    pull.collect((error, results) => {
+      if (error) console.log(error)
+
+      html.update(secondHtmlTarget, BlockMessages(results)) // Block messages
     })
   )
 }
