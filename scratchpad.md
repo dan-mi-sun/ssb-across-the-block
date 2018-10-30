@@ -1,3 +1,12 @@
+# QUESTIONS:
+
+- in app.js how best to pass around block.key to check blockResponse.root 
+- app.js: SOURCE the pull gets lastDaysBlocks which finds blocks and prunes server side to produce a particular shape returns the output of the filter and map
+- app.js: that then flows THROUGH getName (get-name.js) which **makes call to server** filters based on the data.author (which is a hash). the "collect" then read the stream into an array and updates the name if there is one (lastest self-ascribed) and places this in data within donecb
+- app.js: the "pull.collect" results is the output of the above two steps
+- app.js: is it possible to chain throughs? eg. getName and getBacklinks?
+- last-days-block-responses need file which is a composite of lastDaysBlocks && lastDaysBlockResponses
+
 # TODO:
 
 -[x] get backLinked posts to block content post

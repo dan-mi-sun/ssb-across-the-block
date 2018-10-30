@@ -25,7 +25,6 @@ module.exports = function lastDaysBlocks (server, daysAgo = 0) {
           author: ['value', 'author'],
           contact: ['value', 'content', 'contact'],
           timestamp: ['value', 'timestamp']
-
         }
       }
     ]
