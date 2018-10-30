@@ -1,12 +1,9 @@
 var pull = require('pull-stream')
 
-const relatedMessages = []
-const msgKey = '%n2iq29AiNz7Z83i5VboY0izsoADQlYfbxBGrRcATGCg=.sha256'
-
 module.exports = function getBacklinks (server) {
   return function (data, donecb) {
-    // I think what I am doing here is grabbing the key from the lastDaysBlocks map
-    const id = data.key 
+    // data is a msg with authorName added here
+  
     function createBacklinkStream (id) {
       var filterQuery = {
         $filter: {
@@ -15,18 +12,18 @@ module.exports = function getBacklinks (server) {
       }
       return server.backlinks.read({
         query: [filterQuery],
-        index: 'DTA',
-        live: true
+        index: 'DTA'
       })
     }
 
     pull(
-      createBacklinkStream(msgKey),
-      pull.filter(msg => !msg.sync),
-      pull.drain(msg => {
-        relatedMessages.push(msg)
+      createBacklinkStream(data.key),
+      pull.collect((err, backlinks) => {
+        if (err) return donecb(err)
+        
+        data.backlinks = backlinks
+        donecb(null, data)
       })
-      donecb(null, data)
     )
   }
 }
