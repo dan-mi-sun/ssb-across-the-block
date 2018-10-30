@@ -16,7 +16,9 @@ function Post (postData) {
     <p>key: ${postData.key}</p>
     <p>${postData.contact}</p>
     <p>backlinks: insert here</p>
+    <p>${postData.backlinks}</p>
     <p>backlinksContent: insert here</p>
+    <p>-----------------------------</p>
   </div>
   `
 }
