@@ -16,7 +16,7 @@ function Post (postData) {
   var backlinks = postData.backlinks
   function backlinksFn (bl) {
     bl.forEach(function(item, index, array) {
-    console.log(item, index)
+    console.log(item.value.content.text, index)
     console.log('-----------')
   }
   )}
