@@ -9,14 +9,26 @@ module.exports = function Posts (results) {
 }
 
 function Post (postData) {
-// could do some logic and error handelling here. pospi doesn't have an author name e.g. so we could give a default
+//I am trying to figure out the shape of backlinks and how to 
+// -[ ] access them
+// -[ ] display them
+
+  var backlinks = postData.backlinks
+  function backlinksFn (bl) {
+    bl.forEach(function(item, index, array) {
+    console.log(item, index)
+    console.log('-----------')
+  }
+  )}
+
+  backlinksFn(backlinks)
+
   return html`
   <div>
     <strong>${postData.authorName} blocked: </strong>
     <p>key: ${postData.key}</p>
     <p>${postData.contact}</p>
     <p>backlinks: insert here</p>
-    <p>${postData.backlinks}</p>
     <p>backlinksContent: insert here</p>
     <p>-----------------------------</p>
   </div>
