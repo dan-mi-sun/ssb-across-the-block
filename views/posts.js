@@ -9,21 +9,19 @@ module.exports = function Posts (results) {
 }
 
 function Post (postData) {
-//I am trying to figure out the shape of backlinks and how to 
-// -[ ] access them
-// -[ ] display them
-
+  //setting this up as a helper to cycle through multiple backlinks where they
+  //exist. Initial plan is to only show the first post on a block.
+  //Not actually using this at present as can't even get one to show in the 
+  //view.
   var backlinks = postData.backlinks
+  // console.log(backlinks[0])
   function backlinksFn (bl) {
     bl.forEach(function(item, index, array) {
-    // inside here would be good if could return
-    // the text 
     // console.log(item.value.content.text, index)
     // console.log('-----------')
-    return item.value.content.text
+    return html`<p>${item.value.content.text}</p>`
     }
   )}
-
 
   return html`
   <div>
@@ -31,7 +29,7 @@ function Post (postData) {
     <p>this person: ${postData.contact}</p>
     <p>key of block: ${postData.key}</p>
     <p>backlinks: insert here</p>
-    <p>${ backlinksFn(backlinks)}</p>
+    <p>${postData.backlinks[0]}</p>
     <p>backlinksContent: insert here</p>
     <p>-----------------------------</p>
   </div>
