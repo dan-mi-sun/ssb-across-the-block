@@ -2,8 +2,6 @@ var pull = require('pull-stream')
 
 module.exports = function getBacklinks (server) {
   return function (data, donecb) {
-    // data is a msg with authorName added here
-  
     function createBacklinkStream (id) {
       var filterQuery = {
         $filter: {
