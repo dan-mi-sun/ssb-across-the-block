@@ -17,9 +17,11 @@ function Post (postData) {
   // console.log(backlinks[0])
   function backlinksFn (bl) {
     bl.forEach(function(item, index, array) {
-    // console.log(item.value.content.text, index)
-    // console.log('-----------')
-    return html`<p>${item.value.content.text}</p>`
+    console.log(item.value.content.text)
+    console.log('-----------')
+    return html`
+      <div>${item.value.content.text}</div>
+    `
     }
   )}
 
@@ -29,7 +31,7 @@ function Post (postData) {
     <p>this person: ${postData.contact}</p>
     <p>key of block: ${postData.key}</p>
     <p>backlinks: insert here</p>
-    <p>${postData.backlinks[0]}</p>
+    <p>${backlinksFn(backlinks)}</p>
     <p>backlinksContent: insert here</p>
     <p>-----------------------------</p>
   </div>
