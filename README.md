@@ -1,7 +1,10 @@
 # ssb-across-the-block
 
 ## Running
-You can run this project in its current work in progress state with the following command
+
+This code assumes you have an sbot instance running, so make sure you have patch{work, bay, foo ,less} running.
+
+You can then run this project in its current work in progress state with the following command
 
 `$ npx electro index.js`
 
